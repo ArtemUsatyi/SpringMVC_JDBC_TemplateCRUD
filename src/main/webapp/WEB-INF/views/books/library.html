@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Библиотека книг</title>
+</head>
+<body>
+
+<div th:each="book : ${listBook}">
+    <a th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getNameBook()}+' , '+ ${book.getNameAuthor()} +' , '+
+        ${book.getAge()}"/>
+</div>
+
+<hr/>
+<br/>
+<form th:action="@{/books/new}">
+    <input type="submit" value="Добавление новой книги">
+</form>
+
+</body>
+</html>
